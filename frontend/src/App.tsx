@@ -1,19 +1,22 @@
 import {useState} from 'react';
 import logo from './assets/images/Fuelvine.png';
 import './App.css';
-import {GetCode, GetSpeed} from "../wailsjs/go/main/Telemetry";
+import {GetCode, GetSpeed, GetCarTelemetry} from "../wailsjs/go/main/Telemetry";
 import {EventsOn} from "../wailsjs/runtime";
+import * as packets from "./Packets";
 
 function App() {
     const [codeText, setCodeText] = useState("None");
     const [speed, setSpeed] = useState(0);
-
-    function updateCode() {
-        GetCode().then(setCodeText)
-    }
+    const [telemetry, setTelemetry] = useState();
 
     function updateSpeed(){
         GetSpeed().then(setSpeed)
+    }
+    async function updateTelemetry() {
+        let carTelemetry: packets.CarTelemetryData = await GetCarTelemetry()
+        console.log(carTelemetry.Speed)
+        console.log(carTelemetry.TyresPressure)
     }
 
     EventsOn("event", setCodeText)
@@ -24,8 +27,9 @@ function App() {
             <img src={logo} id="logo" alt="logo"/>
             <div id="result" className="result">{codeText}</div>
             <div id="result" className="result">{speed}</div>
+            <div id="result" className="result">{telemetry}</div>
             <div id="input" className="input-box">
-                <button className="btn" onClick={updateCode}>Update</button>
+                <button className="btn" onClick={updateTelemetry}>Update</button>
             </div>
         </div>
     )

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/Fuelvine/f1-telemetry/pkg/packets"
 )
 
@@ -15,11 +14,13 @@ func NewTelemetry() *Telemetry {
 }
 
 func (t *Telemetry) GetCode() string {
-	fmt.Print(".")
 	return t.TelemetryCode
 }
 
 func (t *Telemetry) GetSpeed() uint16 {
-	fmt.Print(".")
 	return t.CarTelemetryData.Speed
+}
+
+func (t *Telemetry) GetCarTelemetry() packets.CarTelemetryData {
+	return t.CarTelemetryData
 }
