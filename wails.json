@@ -1,0 +1,12 @@
+{
+  "name": "kiwi",
+  "outputfilename": "kiwi",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "iMeisa",
+    "email": "62470487+iMeisa@users.noreply.github.com"
+  }
+}
