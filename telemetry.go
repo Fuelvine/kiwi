@@ -15,6 +15,7 @@ func NewTelemetry() *Telemetry {
 }
 
 func (t *Telemetry) GetCode() string {
+	fmt.Print(".")
 	return t.TelemetryCode
 }
 

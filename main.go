@@ -52,13 +52,13 @@ func telemetrySetup(app *App) *Telemetry {
 
 	client.OnEventPacket(func(packet *packets.PacketEventData) {
 		tm.TelemetryCode = fmt.Sprintf("%s", packet.EventCodeString())
-		runtime.EventsEmit(app.ctx, "event")
+		runtime.EventsEmit(app.ctx, "event", packet.EventCodeString())
 	})
 
 	client.OnCarTelemetryPacket(func(packet *packets.PacketCarTelemetryData) {
 		tm.CarTelemetryData = packet.CarTelemetryData[0]
 		fmt.Print("\n\nSpeed: ", tm.CarTelemetryData.Speed)
-		runtime.EventsEmit(app.ctx, "car")
+		runtime.EventsEmit(app.ctx, "car", tm.CarTelemetryData.Speed)
 	})
 
 	fmt.Println("Telemetry client started")

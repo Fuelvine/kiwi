@@ -16,8 +16,8 @@ function App() {
         GetSpeed().then(setSpeed)
     }
 
-    EventsOn("event", updateCode)
-    EventsOn("car", updateSpeed)
+    EventsOn("event", setCodeText)
+    EventsOn("car", setSpeed)
 
     return (
         <div id="App">
