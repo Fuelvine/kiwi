@@ -23,7 +23,7 @@ func main() {
 	fmt.Println("Starting Wails application")
 	err := wails.Run(&options.App{
 		Title:            "kiwi",
-		Width:            1280,
+		Width:            1000,
 		Height:           720,
 		Assets:           assets,
 		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
