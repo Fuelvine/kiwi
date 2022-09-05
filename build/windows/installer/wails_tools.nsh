@@ -5,13 +5,13 @@
 !include "FileFunc.nsh"
 
 !ifndef INFO_PROJECTNAME
-    !define INFO_PROJECTNAME "kiwi"
+    !define INFO_PROJECTNAME "Kiwi"
 !endif
 !ifndef INFO_COMPANYNAME
-    !define INFO_COMPANYNAME "kiwi"
+    !define INFO_COMPANYNAME "Kiwi"
 !endif
 !ifndef INFO_PRODUCTNAME
-    !define INFO_PRODUCTNAME "kiwi"
+    !define INFO_PRODUCTNAME "Kiwi"
 !endif
 !ifndef INFO_PRODUCTVERSION
     !define INFO_PRODUCTVERSION "1.0.0"

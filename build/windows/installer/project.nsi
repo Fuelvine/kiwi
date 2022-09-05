@@ -38,7 +38,7 @@ Unicode true
 VIProductVersion "${INFO_PRODUCTVERSION}.0"
 VIFileVersion    "${INFO_PRODUCTVERSION}.0"
 
-VIAddVersionKey "CompanyName"     "${INFO_COMPANYNAME}"
+VIAddVersionKey "CompanyName"     "Fuelvine"
 VIAddVersionKey "FileDescription" "${INFO_PRODUCTNAME} Installer"
 VIAddVersionKey "ProductVersion"  "${INFO_PRODUCTVERSION}"
 VIAddVersionKey "FileVersion"     "${INFO_PRODUCTVERSION}"
@@ -68,8 +68,8 @@ VIAddVersionKey "ProductName"     "${INFO_PRODUCTNAME}"
 #!finalize 'signtool --file "%1"'
 
 Name "${INFO_PRODUCTNAME}"
-OutFile "..\..\bin\${INFO_PROJECTNAME}-${ARCH}-installer.exe" # Name of the installer's file.
-InstallDir "$PROGRAMFILES64\${INFO_COMPANYNAME}\${INFO_PRODUCTNAME}" # Default installing folder ($PROGRAMFILES is Program Files folder).
+OutFile "..\..\bin\${INFO_PROJECTNAME}-installer.exe" # Name of the installer's file.
+InstallDir "$PROGRAMFILES64\Fuelvine\${INFO_PRODUCTNAME}" # Default installing folder ($PROGRAMFILES is Program Files folder).
 ShowInstDetails show # This will always show the installation details.
 
 Function .onInit

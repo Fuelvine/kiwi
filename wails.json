@@ -1,6 +1,6 @@
 {
-  "name": "kiwi",
-  "outputfilename": "kiwi",
+  "name": "Kiwi",
+  "outputfilename": "Kiwi",
   "frontend:install": "npm install",
   "frontend:build": "npm run build",
   "frontend:dev:watcher": "npm run dev",
