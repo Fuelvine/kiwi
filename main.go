@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	"fmt"
+
 	"github.com/Fuelvine/f1-telemetry/pkg/packets"
 	"github.com/Fuelvine/f1-telemetry/pkg/telemetry"
 	"github.com/iMeisa/errortrace"
@@ -14,6 +15,11 @@ import (
 var assets embed.FS
 
 func main() {
+	// Create an instance of the app structure
+	app := NewApp()
+	tm := NewTelemetry()
+
+	// Create telemetry client
 	client, err := telemetry.NewClient()
 	if err != nil {
 		trace := errortrace.NewTrace(err)
@@ -21,27 +27,27 @@ func main() {
 		panic(trace.ErrorString())
 	}
 
+	dispatcher := event.NewDispatcher()
+
 	client.OnEventPacket(func(packet *packets.PacketEventData) {
-		fmt.Println("Code: ", packet.EventStringCode)
+
 	})
 
 	fmt.Println("Telemetry client started")
 	go client.Run()
 
-	// Create an instance of the app structure
-	app := NewApp()
-
 	// Create application with options
 	fmt.Println("Starting Wails application")
 	err = wails.Run(&options.App{
 		Title:            "kiwi",
-		Width:            1024,
-		Height:           768,
+		Width:            1280,
+		Height:           720,
 		Assets:           assets,
 		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
 		OnStartup:        app.startup,
 		Bind: []interface{}{
 			app,
+			tm,
 		},
 	})
 
