@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import logo from './assets/images/Fuelvine.png';
 import './App.css';
-import {GetCode, GetSpeed, GetCarTelemetry} from "../wailsjs/go/main/Telemetry";
+import {GetCarTelemetry} from "../wailsjs/go/telemetry/Telemetry";
 import {EventsOn} from "../wailsjs/runtime";
 import * as packets from "./Packets";
 
@@ -10,9 +10,6 @@ function App() {
     const [speed, setSpeed] = useState(0);
     const [telemetry, setTelemetry] = useState();
 
-    function updateSpeed(){
-        GetSpeed().then(setSpeed)
-    }
     async function updateTelemetry() {
         let carTelemetry: packets.CarTelemetryData = await GetCarTelemetry()
         console.log(carTelemetry.Speed)

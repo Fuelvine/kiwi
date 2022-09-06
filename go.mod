@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/Fuelvine/f1-telemetry v1.1.0
+	github.com/go-chi/chi v1.5.4
 	github.com/iMeisa/errortrace v0.0.0-20220902103152-0dc9c2d92cc6
 	github.com/wailsapp/wails/v2 v2.0.0-beta.44.2
 )

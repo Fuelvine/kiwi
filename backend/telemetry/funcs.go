@@ -1,17 +1,6 @@
-package main
+package telemetry
 
-import (
-	"github.com/Fuelvine/f1-telemetry/pkg/packets"
-)
-
-type Telemetry struct {
-	TelemetryCode string
-	packets.CarTelemetryData
-}
-
-func NewTelemetry() *Telemetry {
-	return &Telemetry{}
-}
+import "github.com/Fuelvine/f1-telemetry/pkg/packets"
 
 func (t *Telemetry) GetCode() string {
 	return t.TelemetryCode
