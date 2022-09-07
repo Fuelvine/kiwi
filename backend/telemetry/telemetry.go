@@ -2,15 +2,12 @@ package telemetry
 
 import (
 	"fmt"
-	"github.com/Fuelvine/f1-telemetry/pkg/packets"
 	"github.com/Fuelvine/kiwi/backend/app"
 	"github.com/iMeisa/errortrace"
 )
 
 type Telemetry struct {
 	TelemetryCode string
-	packets.CarTelemetryData
-	SpeedData []uint16
 }
 
 func NewTelemetry() *Telemetry {

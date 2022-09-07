@@ -31,10 +31,6 @@ export function SpeedChart() {
             legend: {
                 position: 'top' as const,
             },
-            title: {
-                display: true,
-                text: 'Chart.js Line Chart',
-            },
         },
     };
 
@@ -45,13 +41,18 @@ export function SpeedChart() {
         labels: msLabel,
         datasets: [
             {
-                label: 'Dataset 1',
+                label: 'Speed',
                 data: speedData,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
         ],
     };
+
+    function resetChart() {
+        setLabel([])
+        setData([])
+    }
 
     function updateChart(speed: number) {
         if (speed < 3) {
@@ -62,5 +63,13 @@ export function SpeedChart() {
     }
 
     EventsOn("car",  updateChart)
-    return <Line options={options} data={data} />;
+
+    return (
+        <div>
+            <button className="btn reset" onClick={resetChart}>
+                reset
+            </button>
+            <Line options={options} data={data} />
+        </div>
+    )
 }

@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import './App.css';
-import {GetCarTelemetry, GetSpeedData} from "../wailsjs/go/telemetry/Telemetry";
+import {FramesJSON} from "../wailsjs/go/telemetry/Telemetry";
 import {EventsOn} from "../wailsjs/runtime";
 import * as packets from "./Packets";
 import {SpeedChart} from "./charts/speed";
@@ -11,9 +11,9 @@ function App() {
     const [telemetry, setTelemetry] = useState();
 
     async function updateTelemetry() {
-        let carTelemetry: packets.CarTelemetryData = await GetCarTelemetry()
-        console.log(carTelemetry.Speed)
-        console.log(carTelemetry.TyresPressure)
+        // let carTelemetry: packets.CarTelemetryData = await GetCarTelemetry()
+        // console.log(carTelemetry.Speed)
+        // console.log(carTelemetry.TyresPressure)
     }
 
     EventsOn("event", setCodeText)
@@ -24,6 +24,9 @@ function App() {
             <div id="result" className="result">{codeText}</div>
             <div id="result" className="result">{speed}</div>
             <div id="result" className="result">{telemetry}</div>
+            <button onClick={FramesJSON}>
+                 Export frames
+            </button>
             <SpeedChart/>
         </div>
     )
