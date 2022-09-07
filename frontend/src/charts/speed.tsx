@@ -38,11 +38,8 @@ export function SpeedChart() {
         },
     };
 
-    // let msLabel: number[] = [];
-    // let speedData: number[] = [];
-
-    const [msLabel, setLabel] = useState([1])
-    const [speedData, setData] = useState([1])
+    const [msLabel, setLabel] = useState([] as string[])
+    const [speedData, setData] = useState([] as number[])
 
     let data = {
         labels: msLabel,
@@ -57,8 +54,10 @@ export function SpeedChart() {
     };
 
     function updateChart(speed: number) {
-        console.log(speed)
-        setLabel(msLabel.concat([1]))
+        if (speed < 3) {
+            return
+        }
+        setLabel(msLabel.concat([" "]))
         setData(speedData.concat([speed]))
     }
 
