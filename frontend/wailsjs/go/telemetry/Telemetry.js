@@ -13,3 +13,7 @@ export function GetCode() {
 export function GetSpeed() {
   return window['go']['telemetry']['Telemetry']['GetSpeed']();
 }
+
+export function GetSpeedData() {
+  return window['go']['telemetry']['Telemetry']['GetSpeedData']();
+}

@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import logo from './assets/images/Fuelvine.png';
 import './App.css';
-import {GetCarTelemetry} from "../wailsjs/go/telemetry/Telemetry";
+import {GetCarTelemetry, GetSpeedData} from "../wailsjs/go/telemetry/Telemetry";
 import {EventsOn} from "../wailsjs/runtime";
 import * as packets from "./Packets";
+import {SpeedChart} from "./charts/speed";
 
 function App() {
     const [codeText, setCodeText] = useState("None");
@@ -21,13 +21,10 @@ function App() {
 
     return (
         <div id="App">
-            <img src={logo} id="logo" alt="logo"/>
             <div id="result" className="result">{codeText}</div>
             <div id="result" className="result">{speed}</div>
             <div id="result" className="result">{telemetry}</div>
-            <div id="input" className="input-box">
-                <button className="btn" onClick={updateTelemetry}>Update</button>
-            </div>
+            <SpeedChart/>
         </div>
     )
 }

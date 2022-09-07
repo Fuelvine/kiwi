@@ -23,8 +23,9 @@ func setup(app *app.App, tm *Telemetry) (*f1.Client, errortrace.ErrorTrace) {
 	})
 
 	client.OnCarTelemetryPacket(func(packet *packets.PacketCarTelemetryData) {
-		tm.CarTelemetryData = packet.CarTelemetryData[0]
-		runtime.EventsEmit(app.Ctx, "car", tm.CarTelemetryData.Speed)
+		speed := packet.CarTelemetryData[0].Speed
+		tm.SpeedData = append(tm.SpeedData, speed)
+		runtime.EventsEmit(app.Ctx, "car", speed)
 	})
 
 	return client, errortrace.NilTrace()

@@ -10,6 +10,7 @@ import (
 type Telemetry struct {
 	TelemetryCode string
 	packets.CarTelemetryData
+	SpeedData []uint16
 }
 
 func NewTelemetry() *Telemetry {

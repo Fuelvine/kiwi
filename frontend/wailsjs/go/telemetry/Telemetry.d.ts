@@ -7,3 +7,5 @@ export function GetCarTelemetry():Promise<packets.CarTelemetryData>;
 export function GetCode():Promise<string>;
 
 export function GetSpeed():Promise<number>;
+
+export function GetSpeedData():Promise<Array<number>>;

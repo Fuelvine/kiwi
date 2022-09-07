@@ -13,3 +13,7 @@ func (t *Telemetry) GetSpeed() uint16 {
 func (t *Telemetry) GetCarTelemetry() packets.CarTelemetryData {
 	return t.CarTelemetryData
 }
+
+func (t *Telemetry) GetSpeedData() []uint16 {
+	return t.SpeedData
+}
