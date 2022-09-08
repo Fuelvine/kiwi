@@ -21,12 +21,11 @@ function App() {
 
     return (
         <div id="App">
-            <div id="result" className="result">{codeText}</div>
-            <div id="result" className="result">{speed}</div>
-            <div id="result" className="result">{telemetry}</div>
-            <button onClick={FramesJSON}>
-                 Export frames
-            </button>
+            {/*<div id="result" className="result">{codeText}</div>*/}
+            {/*<div id="result" className="result">{speed}</div>*/}
+            {/*<button onClick={FramesJSON}>*/}
+            {/*     Export frames*/}
+            {/*</button>*/}
             <SpeedChart/>
         </div>
     )

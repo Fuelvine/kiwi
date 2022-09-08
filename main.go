@@ -34,8 +34,8 @@ func main() {
 	fmt.Println("Starting Wails application")
 	err := wails.Run(&options.App{
 		Title:     "Kiwi",
-		Width:     1000,
-		Height:    720,
+		Width:     800,
+		Height:    600,
 		Assets:    assets,
 		OnStartup: a.Startup,
 		Bind: []interface{}{ // Binds struct functions to JS

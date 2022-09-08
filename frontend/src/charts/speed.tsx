@@ -10,7 +10,8 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import {EventsOn} from "../../wailsjs/runtime";
+import {EventsOn, WindowGetSize} from "../../wailsjs/runtime";
+import "./chart.css"
 
 export function SpeedChart() {
 
@@ -24,8 +25,10 @@ export function SpeedChart() {
         Legend
     );
 
+    const [aspectRatio, setAr] = useState(800/500)
+
     let options = {
-        // maintainAspectRatio: false,
+        aspectRatio: aspectRatio,
         responsive: true,
         plugins: {
             legend: {
@@ -62,7 +65,12 @@ export function SpeedChart() {
         setData(speedData.concat([speed]))
     }
 
+    function updateChartSize(width: number, height: number) {
+         setAr(width/(height-100))
+    }
+
     EventsOn("car",  updateChart)
+    EventsOn("windowSizeChanged", updateChartSize)
 
     return (
         <div>
